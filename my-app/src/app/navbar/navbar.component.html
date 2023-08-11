@@ -1,0 +1,79 @@
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="logo">
+      <a href="#"><fa-icon [icon]="faShop"></fa-icon> Logo</a>
+    </div>
+
+    <div class="dropdown category-dropdown">
+      <button class="secondary-btn">Category
+        <fa-icon [icon]="faAngleDown"></fa-icon>
+      </button>
+      <div class="dropdown-content dropdown-align-left">
+        <a href="#">Category 1
+          <div class="dropdown-content-inner">
+            <a href="#">Sub category 1</a>
+            <a href="#">Sub category 2</a>
+            <a href="#">Sub category 3</a>
+          </div>
+        </a>
+        <a href="#">Category 2
+          <div class="dropdown-content-inner">
+            <a href="#">Sub category 1</a>
+            <a href="#">Sub category 2</a>
+            <a href="#">Sub category 3</a>
+          </div>
+        </a>
+        <a href="#">Category 3
+          <div class="dropdown-content-inner">
+            <a href="#">Sub category 1</a>
+            <a href="#">Sub category 2</a>
+            <a href="#">Sub category 3</a>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="search-container">
+      <input type="text" placeholder="Search..">
+      <button type="submit"><fa-icon [icon]="faSearch"></fa-icon></button>
+    </div>
+
+    <a href="#" class="primary-btn explore-btn">Explore courses</a>
+
+    <div class="cart">
+      <a href="#"><fa-icon [icon]="faShoppingCart"></fa-icon></a>
+    </div>
+
+    <div *ngIf="!(authService.isLoggedIn$ | async)" class="login-link">
+      <a routerLink="/login">Login</a>
+    </div>
+
+    <div *ngIf="authService.isLoggedIn$ | async" class="profile-link dropdown">
+      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+        {{ userInitials }} <!-- Display the user's initials -->
+      </a>
+    
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+
+        <li><a class="dropdown-item" href="#" (click)="becomeInstructor()">Become an Instructor</a></li>
+        <li><a class="dropdown-item" href="#" routerLink="/profile">Profile</a></li>
+        <li><a class="dropdown-item" href="#" routerLink="/settings">Settings</a></li>
+      </ul>
+    </div>
+    
+
+    <div class="dropdown hamburger-dropdown">
+      <button class="hamburger"><fa-icon [icon]="faBars"></fa-icon></button>
+      <div class="dropdown-content dropdown-align-right">
+        <a href="#">Why Us</a>
+        <a href="#">Help Center</a>
+        <a href="#">Blog</a>
+        <a href="#">Press Information</a>
+        <hr>
+        <a *ngIf="!(authService.isLoggedIn$ | async)" href="/login/">Login</a>
+        <a *ngIf="!(authService.isLoggedIn$ | async)" href="/signup/">Sign up</a>
+        <a *ngIf="authService.isLoggedIn$ | async" (click)="logOut()">Logout</a>
+      </div>
+    </div>
+  </div>
+</nav>

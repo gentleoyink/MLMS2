@@ -1,0 +1,28 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h2>All Courses</h2>
+
+  <ul>
+    {% for course in object_list %}
+      <li>
+        <h3>{{ course.title }}</h3>
+        <p>Level: {{ course.get_level_display }}</p>
+        <p>Description: {{ course.description }}</p>
+        <p>Category: {{ course.category.name }}</p>
+        <p>Fee: {{ course.fee }}</p>
+        <p>Instructor: {{ course.instructor }}</p>
+        <p>Average Rating: {{ course.average_rating }}</p>
+        <a href="{% url 'course_detail' course.slug %}">View Details</a> <!-- updated here -->
+        {% if user == course.instructor %}
+        <a href="{% url 'course_edit' course.slug %}">Edit</a>
+        <a href="{% url 'course_delete' course.slug %}">Delete</a>
+        <a href="{% url 'module_create' course_slug=course.slug %}">Add Module</a>
+        {% endif %}
+      </li>
+    {% empty %}
+      <li>No courses available.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
+

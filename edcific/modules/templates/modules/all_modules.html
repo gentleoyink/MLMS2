@@ -1,0 +1,25 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h2>All Modules</h2>
+
+  <ul>
+    {% for module in object_list %}
+      <li>
+        <h3>{{ module.title }}</h3>
+        <p>Description: {{ course.description }}</p>
+        <p>Course: {{ module.course.title }}</p>
+        <p>Fee: {{ module.fee }}</p>
+        <p>Instructor: {{ module.instructor }}</p>
+        <a href="{% url 'module_detail' module.slug %}">View Details</a>
+        {% if user == module.instructor %}
+        <a href="{% url 'module_update' module.slug %}">Edit</a>
+        <a href="{% url 'module_delete' module.slug %}">Delete</a>
+        <a href="{% url 'lesson_create' module_slug=module.slug %}">Add Lesson</a>
+        {% endif %}      
+      </li>
+    {% empty %}
+      <li>No courses available.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

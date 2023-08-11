@@ -1,0 +1,28 @@
+{% extends 'base_generic.html' %}
+{% load static %}
+
+
+{% block content %}
+  <h2>{{ user.username }}</h2>
+  <p>Email: {{ user.email }}</p>
+  <p>Role: {{ user.get_role_display }}</p>
+  <p>Timezone: {{ user.timezone }}</p>
+  <p>Preferred Language: {{ user.preferred_language }}</p>
+  <p>Specialization: {{ user.specialization }}</p>
+  <p>Bio: {{ user.bio }}</p>
+  <p>Birthdate: {{ user.birthdate }}</p>
+  <p>Social Links: {{ user.social_links }}</p>
+  <p>Contact Address: {{ user.contact_address1 }}, {{ user.contact_address2 }}</p>
+  <p>Contact State: {{ user.contact_state }}</p>
+  <p>Contact Country: {{ user.contact_country }}</p>
+  <p>Contact Zipcode: {{ user.contact_zipcode }}</p>
+  <p>Contact Phone: {{ user.contact_phone }}</p>
+  <p>Profile Image: 
+    {% if user.profile_image %}
+        <img src="{{ user.profile_image.url }}" alt="{{ user.username }}">
+    {% else %}
+        <img src="{% static 'default_image.jpg' %}" alt="{{ user.username }}">
+    {% endif %}
+</p>
+  <a href="{% url 'profile_edit' %}">Edit Profile</a>
+{% endblock %}

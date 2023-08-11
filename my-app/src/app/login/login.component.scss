@@ -1,0 +1,129 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.login-grid, .signup-grid {
+    display: grid;
+    gap: 10px;
+    align-items: start;
+    justify-content: center;
+    grid-template-columns: 1fr;
+    max-width: 350px;
+    margin: auto;
+
+    h1, h5 {
+        text-align: center;
+        margin: 0;
+    }
+
+    h1 {
+        margin-bottom: 10px;
+    }
+
+    input[type="email"], .password-input {
+        padding: 12px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .password-input {
+        padding-right: 40px; /* add padding to avoid overlap with the eye icon */
+    }
+
+    .submit-button {
+        padding: 12px;
+        border-radius: 5px;
+        border: none;
+        font-size: 16px;
+        width: 100%;
+        box-sizing: border-box;
+        background-color: #008CBA;
+        color: white;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #0077a2;
+        }
+    }
+
+    .social-login button {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px;
+        border-radius: 5px;
+        border: 1px solid #000;
+        font-size: 16px;
+        width: 100%;
+        box-sizing: border-box;
+        background-color: #fff;
+        color: #000;
+        margin-bottom: 10px;
+        cursor: pointer;
+        
+        img {
+            margin-right: 10px;
+        }
+    
+        &:hover {
+            background-color: #008CBA; /* make the background color same as login button on hover */
+            color: #fff; /* make the text color white on hover */
+        }
+    }
+    
+
+    .password-container {
+        position: relative;
+    }
+
+    .eye-icon {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    .divider {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        color: gray;
+    
+        &::before, &::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid gray;
+        }
+
+        &::before {
+            margin-right: .5em;
+        }
+
+        &::after {
+            margin-left: .5em;
+        }
+    }
+
+    .error {
+        color: red;
+        margin-top: 5px;
+        font-size: 0.8em;
+    }
+
+    .forgot-password {
+        text-align: left;
+        display: block;
+        margin-bottom: 10px;
+        color: #008CBA;
+    
+        &:hover {
+            color: #0077a2;
+        }
+    }
+}

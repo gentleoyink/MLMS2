@@ -1,0 +1,316 @@
+.navbar {
+  width: 100%;
+  background: #fff;
+  color: #333;
+  box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.16);
+  position: relative;
+  z-index: 100;
+  
+  .nav-container {
+    max-width: 1350px;
+    margin: 0 auto;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo,
+    .dropdown,
+    .search-container,
+    .primary-btn,
+    .cart,
+    .login-link {
+      margin-right: 10px;
+    }
+
+    // Mobile portrait
+    @media (max-width: 767px) {
+      .hamburger-dropdown {
+        order: 1;
+      }
+
+      .logo {
+        order: 2;
+      }
+
+      .cart {
+        order: 3;
+      }
+
+      .search-container,
+      .category-dropdown,
+      .primary-btn,
+      .login-link {
+        display: none;
+      }
+
+      .hamburger-dropdown {
+        .search-container-mobile,
+        .category-dropdown-mobile {
+          display: block;
+        }
+      }
+    }
+
+    // Mobile landscape and tablet portrait
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .logo {
+        order: 1;
+      }
+
+      .search-container {
+        order: 2;
+        flex-grow: 1;
+      }
+
+      .cart,
+      .login-link,
+      .hamburger-dropdown {
+        order: 3;
+      }
+
+      .category-dropdown,
+      .primary-btn {
+        display: none;
+      }
+    }
+
+    .logo {
+      a {
+        color: #333;
+        text-decoration: none;
+        font-size: 1.5em;
+        font-weight: bold;
+      }
+    }
+
+    .search-container {
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 10px;
+      
+      input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        border-left: 1px solid #ccc;
+        border-top: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+        border-radius: 4px 0 0 4px;
+      }
+      
+      button {
+        background: none;
+        border: none;
+        padding: 10px;
+        border-right: 1px solid #ccc;
+        border-top: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+        border-radius: 0 4px 4px 0;
+      }
+    }
+
+    .primary-btn {
+      background-color: #006494;
+      color: #fff;
+      padding: 10px 10px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .secondary-btn {
+      background-color: rgba(0,125,178,.5); // Green color
+      color: #fff;
+      border: none;
+      padding: 10px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      box-shadow: 0 0 0 3px #fff; // This creates a white "ring" around thbackground-color: rgba(0,125,178,.5) !important;
+      cursor: pointer;
+    }
+
+    .login-link > a {
+      color: #0f2b46;
+      text-decoration: none;
+      font-size: 16px;
+    
+      &:visited {
+        color: #0f2b46;
+        text-decoration: none;
+      }
+    
+      &:hover {
+        color: #006494;
+      }
+    }
+
+    .hamburger {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 24px; // Increase the size of hamburger
+      align-self: stretch; // Make the hamburger as tall as the search bar
+    }
+
+    .cart {
+      a {
+        color: #333;
+        text-decoration: none;
+        font-size: 1.2em;
+        font-weight: bold;
+      }
+    }
+
+    .dropdown {
+      position: relative;
+
+      .dropbtn {
+        background-color: #fff;
+        color: #0f2b46; // Update dropdown text color
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        position: relative;
+
+        .fa-times {
+          position: absolute;
+          top: 5px;
+          right: 5px;
+        }
+      }
+
+      .dropdown-align-left{
+        left: 0;
+      }
+
+      .dropdown-align-right{
+        right: 0;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        // aligns the left edge of the dropdown to the left edge of the button
+        background-color: #f9f9f9;
+        min-width: 240px; // increase the width of the dropdown
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+
+        a {
+          color: #0f2b46; // Update dropdown text color
+          padding: 12px 16px;
+          text-decoration: none;
+          display: block;
+        }
+
+        a:hover {
+          color: #006494; // Update dropdown hover text color
+        }
+
+        hr {
+          border-top: 1px solid #ccc; // Change the color of the horizontal line
+          margin-left: 10px;
+          margin-right: 10px;
+          
+        }
+
+        .dropdown-content-inner {
+          display: none;
+          position: absolute;
+          left: 100%;
+          top: 0;
+          background-color: #f9f9f9;
+          min-width: 160px;
+          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+          z-index: 1;
+
+          a {
+            color: #0f2b46; // Update dropdown text color
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+          }
+
+          a:hover {
+            color: #006494; // Update dropdown hover text color
+          }
+
+          .dropdown-content-inner2 {
+            display: none;
+            position: absolute;
+            left: 100%;
+            top: 0;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+
+            a {
+              color: #0f2b46; // Update dropdown text color
+              padding: 12px 16px;
+              text-decoration: none;
+              display: block;
+            }
+
+            a:visited {
+              color: #0f2b46; // Remove the visited link color
+            }
+
+            a:hover {
+              color: #006494; // Update dropdown hover text color
+            }
+          }
+        }
+      }
+
+      &:hover .dropdown-content,
+      .dropdown-content:hover .dropdown-content-inner,
+      .dropdown-content-inner:hover .dropdown-content-inner2 {
+        display: block;
+      }
+    }
+  }
+  .profile-link {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background-color: #4CAF50;
+    border-radius: 50%;
+    margin-right: 10px;
+    color: #fff;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+
+    &:hover .dropdown-menu {
+      display: block;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      right: 0;
+      background-color: #f9f9f9;
+      min-width: 200px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+
+      a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+
+        &:hover {
+          background-color: #ddd;
+        }
+      }
+    }
+  }
+
+}

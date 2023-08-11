@@ -1,0 +1,19 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h2>All Lessons</h2>
+
+  <ul>
+    {% for lesson in object_list %}
+      <li>
+        <h3>{{ lesson.title }}</h3>
+        <p>Module: {{ lesson.module.title }}</p>
+        <p>Course: {{ lesson.module.course.title }}</p>
+
+        <a href="{% url 'lesson_detail' lesson.slug %}">View Details</a>
+      </li>
+    {% empty %}
+      <li>No Modules available.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

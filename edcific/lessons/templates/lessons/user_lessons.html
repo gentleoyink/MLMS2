@@ -1,0 +1,26 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h2>My Lessons</h2>
+  <ul>
+  {% for lesson in object_list %}
+    <li>
+      <a href="{{ lesson.get_absolute_url }}">{{ lesson.title }}</a>
+      <a href="{% url 'lesson_update' slug=lesson.slug %}">Edit</a>
+      <a href="{% url 'lesson_delete' slug=lesson.slug %}">Delete</a>
+      <br>
+      Module: {{ lesson.module.title }}
+      <br>
+      Category: {{ lesson.module.course.category }}
+      <br>
+      Subcategory: {{ lesson.module.course.subcategory }}
+      <br>
+      Created: {{ lesson.created_at  }}
+      <br>
+      Updated: {{ lesson.updated_at }} 
+    </li>
+  {% endfor %}
+  </ul>
+{% endblock %}
+
+

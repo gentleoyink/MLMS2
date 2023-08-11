@@ -1,0 +1,10 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h2>Delete Course</h2>
+  <p>Are you sure you want to delete the module "{{ object.title }}"?</p>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">Yes, delete</button>
+  </form>
+{% endblock %}

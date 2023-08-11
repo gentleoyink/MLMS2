@@ -1,0 +1,26 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h2>My Courses</h2>
+  <ul>
+  {% for course in object_list %}
+    <li>
+      <a href="{{ course.get_absolute_url }}">{{ course.title }}</a>
+      (Avg. Rating: {{ course.average_rating }})
+      <a href="{% url 'course_edit' slug=course.slug %}">Edit</a>
+      <a href="{% url 'module_create' course_slug=course.slug %}">Add Module</a>
+      <a href="{% url 'course_delete' slug=course.slug %}">Delete</a>
+      <br>
+      Category: {{ course.category }}
+      <br>
+      Subcategory: {{ course.subcategory }}
+      <br>
+      Created: {{ course.created_at  }}
+      <br>
+      Updated: {{ course.updated }}
+      <br>
+      Number of Students: {{ course.total_enrolled_students }} 
+    </li>
+  {% endfor %}
+  </ul>
+{% endblock %}

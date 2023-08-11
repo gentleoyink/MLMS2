@@ -1,0 +1,14 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h3>Your Lessons</h3>
+  <p>{{ verbose_names.title }}: {{ lesson.title }}</p>
+  <p>{{ verbose_names.module }}: {{ lesson.module.title }}</p>
+  <p>{{ verbose_names.created_at }}: {{ lesson.created_at }}</p>
+  <p>{{ verbose_names.updated_at }}: {{ lesson.updated_at }}</p>
+  <p>{{ verbose_names.is_preview }}: {{ lesson.is_preview }}</p>
+  
+  <!-- Add more fields as needed -->
+{% endblock %}
+
+

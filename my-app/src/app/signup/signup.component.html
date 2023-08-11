@@ -1,0 +1,28 @@
+<div class="signup-grid">
+    <h1>Sign up</h1>
+    <h5>Learn on your own time from top universities and businesses.</h5>
+  
+    <input type="email" placeholder="Email" [(ngModel)]="email" (input)="validateEmail()" required>
+  
+    <div class="error" *ngIf="invalidEmail">Please enter a valid email.</div>
+  
+    <div class="password-container">
+      <input type="password" class="password-input" placeholder="Password" [(ngModel)]="password" [type]="hide ? 'password' : 'text'" required>
+      <button class="eye-icon" (click)="toggleVisibility()"> <fa-icon [icon]="hide ? faEye : faEyeSlash"></fa-icon> </button>    
+    </div>
+    
+    <p>By clicking Sign up, you agree to our <a routerLink="/terms-and-conditions" class="terms-and-conditions">Terms and Conditions</a>.</p>
+    
+    <div class="error" *ngIf="invalidPassword">Invalid password.</div>
+  
+    <button class="submit-button" (click)="signup()">Sign up</button>
+  
+    <div class="divider">or</div>
+  
+    <div class="social-login">
+    <button class="google-btn"><img src="assets/google-logo.png" alt="Google logo">Continue with Google</button>
+    <button class="facebook-btn"><img src="assets/facebook-logo.png" alt="Facebook logo">Continue with Facebook</button>
+    </div>
+    <p>Already have an Uvvv account? <a routerLink="/login">Login</a></p>
+  </div>
+  

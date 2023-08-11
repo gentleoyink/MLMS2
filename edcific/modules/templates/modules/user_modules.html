@@ -1,0 +1,25 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h2>My Modules</h2>
+  <ul>
+  {% for module in object_list %}
+    <li>
+      <a href="{{ module.get_absolute_url }}">{{ module.title }}</a>
+      <a href="{% url 'module_update' slug=module.slug %}">Edit</a>
+      <a href="{% url 'module_delete' slug=module.slug %}">Delete</a>
+      <br>
+      Course: {{ module.course.title }}
+      <br>
+      Course Category: {{ module.course.category }}
+      <br>
+      Course Subcategory: {{ module.course.subcategory }}
+      <br>
+      Created: {{ module.created_at  }}
+      <br>
+      Updated: {{ module.updated_at }}
+    </li>
+  {% endfor %}
+  </ul>
+{% endblock %}
+

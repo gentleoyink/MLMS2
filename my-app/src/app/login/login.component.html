@@ -1,0 +1,27 @@
+<div class="login-grid">
+  <h1>Login</h1>
+  <h5>Welcome back</h5>
+
+  <input type="email" placeholder="Email" [(ngModel)]="email" (input)="validateEmail()" required>
+
+  <div class="error" *ngIf="invalidEmail">Please enter a valid email.</div>
+
+  <div class="password-container">
+    <input type="password" class="password-input" placeholder="Password" [(ngModel)]="password" [type]="hide ? 'password' : 'text'" required>
+    <button class="eye-icon" (click)="toggleVisibility()"> <fa-icon [icon]="hide ? faEye : faEyeSlash"></fa-icon> </button>    
+  </div>
+  
+  <a routerLink="/forgot-password" class="forgot-password">Forgot Password?</a>
+  <div class="error" *ngIf="invalidPassword">Invalid password.</div>
+
+  <button class="submit-button" (click)="login()">Login</button>
+
+  <div class="divider">or</div>
+
+  <div class="social-login">
+  <button class="google-btn"><img src="assets/google-logo.png" alt="Google logo">Continue with Google</button>
+  <button class="facebook-btn"><img src="assets/facebook-logo.png" alt="Facebook logo">Continue with Facebook</button>
+  <button class="apple-btn"><img src="assets/apple-logo.png" alt="Apple logo">Continue with Apple</button>
+  </div>
+  <p>New to Uvvv? <a routerLink="/signup">Sign up</a></p>
+</div>
